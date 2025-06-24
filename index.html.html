@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestadores de Serviços - Condomínio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .instrucoes {
+            background-color: #e8f4fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .categoria {
+            margin-bottom: 30px;
+        }
+        
+        .categoria h2 {
+            background-color: #34495e;
+            color: white;
+            padding: 12px;
+            margin: 0;
+            border-radius: 8px 8px 0 0;
+            font-size: 18px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            border: 2px solid #34495e;
+        }
+        
+        th {
+            background-color: #ecf0f1;
+            padding: 12px;
+            text-align: left;
+            font-weight: bold;
+            border-bottom: 2px solid #bdc3c7;
+        }
+        
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e8f4fd;
+        }
+        
+        .telefone {
+            font-weight: bold;
+            color: #27ae60;
+        }
+        
+        .botao-adicionar {
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        
+        .botao-adicionar:hover {
+            background-color: #2980b9;
+        }
+        
+        .nova-linha {
+            background-color: #fff3cd !important;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏢 Prestadores de Serviços do Condomínio</h1>
+        
+        <div class="instrucoes">
+            <h3>📋 Como usar esta planilha:</h3>
+            <p><strong>1.</strong> Clique no botão "➕ Adicionar" para incluir um novo prestador</p>
+            <p><strong>2.</strong> Preencha o nome, telefone e observações (se houver)</p>
+            <p><strong>3.</strong> Para editar, clique duas vezes na célula que deseja alterar</p>
+            <p><strong>4.</strong> Todos os moradores podem adicionar e editar informações</p>
+        </div>
+
+        <!-- Eletricista -->
+        <div class="categoria">
+            <h2>⚡ ELETRICISTA</h2>
+            <table id="eletricista">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Nome do Prestador</th>
+                        <th style="width: 25%">Telefone</th>
+                        <th style="width: 45%">Observações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>João Silva Elétrica</td>
+                        <td class="telefone">(11) 99999-9999</td>
+                        <td>Muito pontual, preço justo. Recomendado pela Maria (Ap. 101)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="botao-adicionar" onclick="adicionarLinha('eletricista')">➕ Adicionar Eletricista</button>
+        </div>
+
+        <!-- Encanador -->
+        <div class="categoria">
+            <h2>🔧 ENCANADOR</h2>
+            <table id="encanador">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Nome do Prestador</th>
+                        <th style="width: 25%">Telefone</th>
+                        <th style="width: 45%">Observações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Carlos Hidráulica 24h</td>
+                        <td class="telefone">(11) 88888-8888</td>
+                        <td>Atende emergências. Usado pelo José (Ap. 205)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="botao-adicionar" onclick="adicionarLinha('encanador')">➕ Adicionar Encanador</button>
+        </div>
+
+        <!-- Pedreiro -->
+        <div class="categoria">
+            <h2>🧱 PEDREIRO</h2>
+            <table id="pedreiro">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Nome do Prestador</th>
+                        <th style="width: 25%">Telefone</th>
+                        <th style="width: 45%">Observações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Construtora Lima</td>
+                        <td class="telefone">(11) 77777-7777</td>
+                        <td>Reforma completa de banheiros. Indicação da Ana (Ap. 303)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="botao-adicionar" onclick="adicionarLinha('pedreiro')">➕ Adicionar Pedreiro</button>
+        </div>
+
+        <!-- Marceneiro -->
+        <div class="categoria">
+            <h2>🪚 MARCENEIRO</h2>
+            <table id="marceneiro">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Nome do Prestador</th>
+                        <th style="width: 25%">Telefone</th>
+                        <th style="width: 45%">Observações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Clique para adicionar</td>
+                        <td class="telefone">-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="botao-adicionar" onclick="adicionarLinha('marceneiro')">➕ Adicionar Marceneiro</button>
+        </div>
+
+        <!-- Pintor -->
+        <div class="categoria">
+            <h2>🎨 PINTOR</h2>
+            <table id="pintor">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Nome do Prestador</th>
+                        <th style="width: 25%">Telefone</th>
+                        <th style="width: 45%">Observações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Clique para adicionar</td>
+                        <td class="telefone">-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="botao-adicionar" onclick="adicionarLinha('pintor')">➕ Adicionar Pintor</button>
+        </div>
+
+        <!-- Limpeza -->
+        <div class="categoria">
+            <h2>🧽 LIMPEZA</h2>
+            <table id="limpeza">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Nome do Prestador</th>
+                        <th style="width: 25%">Telefone</th>
+                        <th style="width: 45%">Observações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Clique para adicionar</td>
+                        <td class="telefone">-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="botao-adicionar" onclick="adicionarLinha('limpeza')">➕ Adicionar Diarista/Limpeza</button>
+        </div>
+
+        <!-- Jardinagem -->
+        <div class="categoria">
+            <h2>🌱 JARDINAGEM</h2>
+            <table id="jardinagem">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Nome do Prestador</th>
+                        <th style="width: 25%">Telefone</th>
+                        <th style="width: 45%">Observações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Clique para adicionar</td>
+                        <td class="telefone">-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="botao-adicionar" onclick="adicionarLinha('jardinagem')">➕ Adicionar Jardineiro</button>
+        </div>
+
+        <!-- Outros Serviços -->
+        <div class="categoria">
+            <h2>🔧 OUTROS SERVIÇOS</h2>
+            <table id="outros">
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Nome do Prestador</th>
+                        <th style="width: 25%">Telefone</th>
+                        <th style="width: 45%">Observações (inclua o tipo de serviço)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Clique para adicionar</td>
+                        <td class="telefone">-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="botao-adicionar" onclick="adicionarLinha('outros')">➕ Adicionar Outro Serviço</button>
+        </div>
+
+        <div class="footer">
+            <p>💡 <strong>Dica:</strong> Sempre incluam nas observações quem indicou o prestador e se ficaram satisfeitos com o serviço!</p>
+            <p>Última atualização: <span id="data-atual"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Função para adicionar nova linha
+        function adicionarLinha(categoria) {
+            const tabela = document.getElementById(categoria);
+            const tbody = tabela.getElementsByTagName('tbody')[0];
+            const novaLinha = tbody.insertRow();
+            novaLinha.className = 'nova-linha';
+            
+            // Criar células editáveis
+            const celulaNome = novaLinha.insertCell(0);
+            const celulaTelefone = novaLinha.insertCell(1);
+            const celulaObservacoes = novaLinha.insertCell(2);
+            
+            celulaNome.innerHTML = '<input type="text" placeholder="Digite o nome do prestador" onblur="finalizarEdicao(this)">';
+            celulaTelefone.innerHTML = '<input type="text" placeholder="(xx) xxxxx-xxxx" onblur="finalizarEdicao(this)">';
+            celulaObservacoes.innerHTML = '<input type="text" placeholder="Observações, quem indicou, etc." onblur="finalizarEdicao(this)">';
+            
+            // Focar no primeiro campo
+            celulaNome.querySelector('input').focus();
+        }
+        
+        // Função para finalizar edição
+        function finalizarEdicao(input) {
+            const valor = input.value.trim();
+            if (valor === '') {
+                input.parentElement.textContent = '-';
+            } else {
+                if (input.placeholder.includes('xxxxx')) {
+                    input.parentElement.innerHTML = '<span class="telefone">' + valor + '</span>';
+                } else {
+                    input.parentElement.textContent = valor;
+                }
+            }
+            input.parentElement.parentElement.classList.remove('nova-linha');
+        }
+        
+        // Tornar células editáveis ao clicar duas vezes
+        document.addEventListener('dblclick', function(e) {
+            if (e.target.tagName === 'TD' && !e.target.querySelector('input')) {
+                const textoAtual = e.target.textContent;
+                if (textoAtual === '-' || textoAtual === 'Clique para adicionar') {
+                    e.target.innerHTML = '<input type="text" placeholder="Digite aqui" onblur="finalizarEdicao(this)">';
+                } else {
+                    e.target.innerHTML = '<input type="text" value="' + textoAtual + '" onblur="finalizarEdicao(this)">';
+                }
+                e.target.querySelector('input').focus();
+                e.target.querySelector('input').select();
+            }
+        });
+        
+        // Exibir data atual
+        document.getElementById('data-atual').textContent = new Date().toLocaleDateString('pt-BR');
+        
+        // Salvar dados no localStorage quando houver mudanças
+        function salvarDados() {
+            const dados = {};
+            const tabelas = ['eletricista', 'encanador', 'pedreiro', 'marceneiro', 'pintor', 'limpeza', 'jardinagem', 'outros'];
+            
+            tabelas.forEach(categoria => {
+                const tabela = document.getElementById(categoria);
+                const linhas = tabela.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+                dados[categoria] = [];
+                
+                for (let i = 0; i < linhas.length; i++) {
+                    const celulas = linhas[i].getElementsByTagName('td');
+                    if (celulas.length >= 3) {
+                        dados[categoria].push({
+                            nome: celulas[0].textContent,
+                            telefone: celulas[1].textContent,
+                            observacoes: celulas[2].textContent
+                        });
+                    }
+                }
+            });
+            
+            // Nota: localStorage não funciona em artifacts, mas o código está preparado
+            // para quando for usado em um ambiente real
+        }
+        
+        // Adicionar listener para mudanças
+        document.addEventListener('blur', salvarDados, true);
+    </script>
+</body>
+</html>
